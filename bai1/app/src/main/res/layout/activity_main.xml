@@ -1,71 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/txtMsg"
+    <EditText
+        android:id="@+id/editTextNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff00"
-        android:text="Using ListViews..."
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        android:hint="Nhập số nguyên dương"
+        android:inputType="number"/>
 
-    <LinearLayout
-        android:id="@+id/mainlayout"
+    <RadioGroup
+        android:id="@+id/radio_Group"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical"
-        >
-        <EditText
-            android:id="@+id/input_n"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="Input n"
-            />
-        <RadioGroup
-            android:id="@+id/group_radio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <RadioButton
-                android:id="@+id/radio_le"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/radio_chan" />
-            <RadioButton
-                android:id="@+id/radio_chinhphuong"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/radio_le" />
-            <RadioButton
-                android:id="@+id/radio_chan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/radio_chinhphuong"/>
-        </RadioGroup>
-        
-        <Button
-            android:id="@+id/show_btn"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="Show"
-            android:textColor="@color/black"
-            />
-    </LinearLayout>
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioEven"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số chẵn"/>
+
+        <RadioButton
+            android:id="@+id/radioOdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lẻ"/>
+
+        <RadioButton
+            android:id="@+id/radioSquare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số chính phương"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show"/>
+
     <ListView
-        android:id="@+id/my_list"
+        android:id="@+id/listViewNumbers"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </ListView>
+        android:layout_height="wrap_content"/>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textViewError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"/>
+</LinearLayout>
