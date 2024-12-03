@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
+import android.widget.Button
 import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,9 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     lateinit var lv: ListView
+    val addFragment=AddFragment()
+    var editMode=0
+    var deleteMode=0
     val students = mutableListOf(
         Student("Nguyễn Văn An", "SV001"),
         Student("Trần Thị Bảo", "SV002"),
@@ -45,6 +49,14 @@ class MainActivity : AppCompatActivity() {
         val adapter = StudentAdapter(this, R.layout.layout_item, students)
         lv.adapter = adapter
         registerForContextMenu(lv)
+
+        findViewById<Button>(R.id.add_btn).setOnClickListener{
+            supportFragmentManager.beginTransaction()
+                .add(R.id.layout_add, addFragment, "TAG")
+                .addToBackStack("TAG")
+                .commit()
+
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
